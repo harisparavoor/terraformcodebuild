@@ -13,4 +13,4 @@ phases:
       - terraform validate
   build:
     commands:
-      - terraform apply --auto-approve
+      - terraform destory --auto-approve
