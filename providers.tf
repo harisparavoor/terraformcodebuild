@@ -10,10 +10,9 @@ terraform {
     key    = "tfstates/terraform.harips"
     encrypt        = true
 	region =  "ap-south-1"
-	profile = "harips"
+#	profile = "harips"
   }
 }
 provider "aws" {
-  profile = "harips"
   region = var.region
 }
