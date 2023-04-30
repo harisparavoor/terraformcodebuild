@@ -26,7 +26,7 @@ resource "aws_instance" "web2" {
   key_name = var.public_key
   #security_groups = [aws_security_group.web-sg.id]
   vpc_security_group_ids = ["${aws_security_group.TF-web-sg.id}"]
-  iam_instance_profile = var.instance_iam_profile
+ # iam_instance_profile = var.instance_iam_profile
   associate_public_ip_address = false
   root_block_device {
     volume_size = 12
