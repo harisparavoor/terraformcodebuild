@@ -26,7 +26,7 @@ resource "aws_instance" "web2" {
   key_name = var.public_key
   #security_groups = [aws_security_group.web-sg.id]
   vpc_security_group_ids = ["${aws_security_group.TF-web-sg.id}"]
- # iam_instance_profile = var.instance_iam_profile
+  iam_instance_profile = var.instance_iam_profile
   associate_public_ip_address = false
   root_block_device {
     volume_size = 12
@@ -46,12 +46,12 @@ tags = {
     Name = "TF-eip"
   }
 }
-#resource "aws_eip_association" "TF-eip" {
+resource "aws_eip_association" "TF-eip" {
 #instance_id = var.instance_web2_id
-#instance_id   = aws_instance.web2[0].id
-#allocation_id = aws_eip.TF-eip.id
-#}
-resource "aws_eip_association" "eip_public_ip" {
 instance_id   = aws_instance.web2[0].id
-allocation_id = var.public_ip
+allocation_id = aws_eip.TF-eip.id
+#}
+#resource "aws_eip_association" "eip_public_ip" {
+#instance_id   = aws_instance.web2[0].id
+#allocation_id = var.public_ip
 }
