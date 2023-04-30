@@ -42,5 +42,5 @@ variable "instance_iam_profile" {
 }
 variable "public_ip"{
   type    = string
-  default = "hari.eip"
+  default = "TF-eip"
 }
